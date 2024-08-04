@@ -1,0 +1,7 @@
+{
+  "browser": "Chrome",
+  "base_url": "https://api.trello.com",
+   "jira_url": "https://ananhusein.atlassian.net/",
+  "project_key": "ASMW",
+  "email": "anan.hosien@gmail.com"
+}
