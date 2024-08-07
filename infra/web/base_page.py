@@ -9,5 +9,5 @@ class BasePage:
     def close_browser(self):
         self._driver.close()
 
-    def refresh_browser(self):
+    def refresh(self):
         self._driver.refresh()
