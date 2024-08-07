@@ -1,5 +1,4 @@
 from jira import JIRA
-
 from infra.config_provider import ConfigProvider
 
 
