@@ -1,3 +1,5 @@
+import os.path
+
 from infra.config_provider import ConfigProvider
 from selenium import webdriver
 

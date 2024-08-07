@@ -27,7 +27,7 @@ class BoardPage(AppBasePage):
     CLOSE_MSG = "//div[@id='content-wrapper']//div[@class='js-react-root']//div/p"
     DELETE_BTN = "//button[@data-testid='close-board-delete-board-button']"
     CONFIRM_DELETE = "//button[@data-testid='close-board-delete-board-confirm-button']"
-    DELETE_MSG = ""
+    DELETE_MSG = "//div[@id='FlagGroup']//span"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -200,5 +200,39 @@ class BoardPage(AppBasePage):
 
             action = ActionChains(self._driver)
             action.drag_and_drop(card, desired_list).perform()
+        except NoSuchElementException as e:
+            print(e)
+
+    def click_on_delete_board_button(self):
+        """
+        a function that clicks on the permanently delete board button
+        """
+        try:
+            delete_button = WebDriverWait(self._driver, 5).until(
+                EC.visibility_of_element_located((By.XPATH, self.DELETE_BTN)))
+            delete_button.click()
+        except NoSuchElementException as e:
+            print(e)
+
+    def click_on_confirm_delete_board_button(self):
+        """
+        a function that clicks on the confirm delete red button
+        """
+        try:
+            confirm_delete_btn = WebDriverWait(self._driver, 5).until(
+                EC.visibility_of_element_located((By.XPATH, self.CONFIRM_DELETE)))
+            confirm_delete_btn.click()
+        except NoSuchElementException as e:
+            print(e)
+
+    def board_deleted_message_is_visible(self):
+        """
+        a function that checks if the board deleted message is displayed
+        :return True/False
+        """
+        try:
+            delete_msg = WebDriverWait(self._driver, 5).until(
+                EC.visibility_of_element_located((By.XPATH, self.DELETE_MSG)))
+            return delete_msg.is_displayed()
         except NoSuchElementException as e:
             print(e)

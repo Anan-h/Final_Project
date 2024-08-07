@@ -1,3 +1,5 @@
+import os
+
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
 
