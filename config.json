@@ -1,7 +1,14 @@
 {
+  "jira_url": "https://ananhusein.atlassian.net/",
+  "project_key": " ",
   "browser": "Chrome",
-  "base_url": "https://api.trello.com",
-   "jira_url": "https://ananhusein.atlassian.net/",
-  "project_key": "ASMW",
-  "email": "anan.hosien@gmail.com"
+  "base_url": "https://trello.com/",
+  "api_base_url": "https://api.trello.com/1",
+  "email": "anan.hosien@gmail.com",
+  "password": "Anan1212",
+  "header": {"Accept": "application/json"},
+  "user_name_to_add": "anan_qa",
+  "min_members_count": 1,
+  "good_status_code": 200,
+  "done_list_name": "Done"
 }

@@ -4,7 +4,7 @@ from infra.web.base_page import BasePage
 
 
 class OpeningPage(BasePage):
-    LOGIN_BUTTON = '//a[@class="Buttonsstyles__Button-sc-1jwidxo-0 kTwZBr"]'
+    LOGIN_BUTTON = "//a[contains(text(),'Log in')]"
 
     def __init__(self, driver):
         super().__init__(driver)
