@@ -1,0 +1,1 @@
+[32mINFO    [0m root:test_move_all_cards.py:29 Testing tha API request for moving all the cards from the all cards

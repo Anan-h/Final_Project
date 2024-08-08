@@ -1,0 +1,2 @@
+[32mINFO    [0m root:browser_wrapper.py:32 opening Chrome browser
+[32mINFO    [0m root:test_adding_new_card_to_list.py:40 Testing adding new card into the ToDo list

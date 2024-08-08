@@ -1,0 +1,2 @@
+[32mINFO    [0m root:browser_wrapper.py:32 opening Chrome browser
+[32mINFO    [0m root:test_update_board.py:36 Testing updating the board name

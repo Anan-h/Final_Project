@@ -1,13 +1,10 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
+from infra.logger import Logger
 
 
 class BasePage:
 
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver):
         self._driver = driver
-
-    def close_browser(self):
-        self._driver.close()
 
     def refresh(self):
         self._driver.refresh()

@@ -1,0 +1,2 @@
+[32mINFO    [0m root:browser_wrapper.py:32 opening Chrome browser
+[32mINFO    [0m root:test_valid_login.py:25 Testing the login function with valid data

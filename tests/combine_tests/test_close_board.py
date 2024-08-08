@@ -1,16 +1,21 @@
+import logging
+import os
 import unittest
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
 from infra.utils import Utils
 from infra.web.browser_wrapper import BrowserWrapper
 from logic.api.api_boards import APIBoards
+from logic.web.board_page import BoardPage
 from logic.web.home_page import HomePage
 from logic.web.login_page import LoginPage
 from logic.web.opening_page import OpeningPage
 
 
-class TestUpdateBoard(unittest.TestCase):
-    config = ConfigProvider().load_from_file('../config.json')
+class TestCloseBoard(unittest.TestCase):
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(base_dir, '../../config.json')
+    config = ConfigProvider().load_from_file(config_path)
 
     def setUp(self):
         self.api_request = APIWrapper()
@@ -19,18 +24,24 @@ class TestUpdateBoard(unittest.TestCase):
         first_page.login_button_click()
         login_page = LoginPage(self.driver)
         login_page.login_flow(self.config["email"], self.config["password"])
-        HomePage(self.driver)
+        self.home_page = HomePage(self.driver)
         self.api_boards = APIBoards(self.api_request)
         self.response = self.api_boards.create_new_board(Utils.generate_random_string(5))
         self.board_id = self.response.data['id']
 
     def tearDown(self):
+        self.board.log_out()
         self.api_boards.delete_board_by_id(self.board_id)
-        HomePage(self.driver).log_out()
+        self.driver.quit()
 
-    def test_update_board_name(self):
-        new_board_name = Utils.generate_random_string(5)
-        self.api_boards.update_board_name_by_board_id(self.board_id, new_board_name)
-        HomePage(self.driver).refresh()
-        boards_names = HomePage(self.driver).get_boards_names()
-        self.assertIn(new_board_name, boards_names)
+    def test_closing_board_function(self):
+        logging.info('Testing the closing function of a board')
+        self.home_page.click_on_board()
+        self.board = BoardPage(self.driver)
+        self.board.click_on_board_menu()
+        self.board.click_on_close_button()
+        self.board.confirm_closing_board()
+        self.assertTrue(self.board.closing_message_is_displayed())
+
+
+

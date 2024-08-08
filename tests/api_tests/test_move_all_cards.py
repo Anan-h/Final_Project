@@ -1,3 +1,5 @@
+import logging
+import os
 import unittest
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
@@ -8,7 +10,9 @@ from logic.api.api_lists import APILists
 
 
 class TestMoveAllCards(unittest.TestCase):
-    config = ConfigProvider().load_from_file('../../config.json')
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(base_dir, '../../config.json')
+    config = ConfigProvider().load_from_file(config_path)
 
     def setUp(self):
         self.api_request = APIWrapper()
@@ -22,6 +26,7 @@ class TestMoveAllCards(unittest.TestCase):
         self.api_boards.delete_board_by_id(self.board_id)
 
     def test_move_all_cards_from_todo_to_done_list(self):
+        logging.info('Testing tha API request for moving all the cards from the all cards')
         self.api_lists = APILists(self.api_request)
         APICards(self.api_request).create_new_card_on_list(self.to_do_list_id, Utils.generate_random_string(5))
         cards_ids = self.api_lists.get_cards_ids_from_list_by_id(self.to_do_list_id)

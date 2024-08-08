@@ -1,3 +1,5 @@
+import logging
+
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import *
 from selenium.webdriver.support.wait import WebDriverWait
@@ -12,21 +14,21 @@ class AppBasePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         try:
-            self.avatar = WebDriverWait(self._driver, 10).until(
+            self.avatar = WebDriverWait(self._driver, 5).until(
                 EC.visibility_of_element_located((By.XPATH, self.AVATAR)))
-        except NoSuchElementException as e:
-            print(e)
+        except TimeoutException as e:
+            logging.error(f'an error occurred: {e}')
 
     def click_on_avatar_icon(self):
         self.avatar.click()
 
     def click_on_logout_button(self):
         try:
-            log_out = WebDriverWait(self._driver, 10).until(
+            log_out = WebDriverWait(self._driver, 5).until(
                 EC.visibility_of_element_located((By.XPATH, self.LOGOUT_BTN)))
             log_out.click()
-        except NoSuchElementException as e:
-            print(e)
+        except TimeoutException as e:
+            logging.error(f'an error occurred: {e}')
 
     def log_out(self):
         """

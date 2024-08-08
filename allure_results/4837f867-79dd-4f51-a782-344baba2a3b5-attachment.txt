@@ -1,0 +1,2 @@
+[32mINFO    [0m root:browser_wrapper.py:32 opening Chrome browser
+[32mINFO    [0m root:test_invalid_login.py:24 Testing tha login function with invalid password

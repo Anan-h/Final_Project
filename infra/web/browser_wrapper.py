@@ -1,3 +1,4 @@
+import logging
 import os.path
 
 from infra.config_provider import ConfigProvider
@@ -28,5 +29,6 @@ class BrowserWrapper:
 
         self.driver.get(url)
         self.driver.maximize_window()
+        logging.info(f"opening {self.config['browser']} browser")
         return self.driver
 

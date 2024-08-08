@@ -1,3 +1,5 @@
+import logging
+
 from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -22,8 +24,8 @@ class LoginPage(BasePage):
             login_email_input = WebDriverWait(self._driver, 5).until(
                 EC.visibility_of_element_located((By.XPATH, self.LOGIN_EMAIL_INPUT)))
             login_email_input.send_keys(email)
-        except NoSuchElementException as e:
-            print("NoSuchElementException:", e)
+        except TimeoutException as e:
+            logging.error(f'an error occurred: {e}')
 
     def fill_password_input(self, password):
         """ Fills the login password input with the given password. """
@@ -32,16 +34,16 @@ class LoginPage(BasePage):
             login_password_input = WebDriverWait(self._driver, 5).until(
                 EC.visibility_of_element_located((By.XPATH, self.LOGIN_PASSWORD_INPUT)))
             login_password_input.send_keys(password)
-        except NoSuchElementException as e:
-            print("NoSuchElementException:", e)
+        except TimeoutException as e:
+            logging.error(f'an error occurred: {e}')
 
     def click_on_continue_button(self):
         try:
             continue_button = WebDriverWait(self._driver, 5).until(
                 EC.visibility_of_element_located((By.XPATH, self.CONTINUE_BUTTON)))
             continue_button.click()
-        except NoSuchElementException as e:
-            print("NoSuchElementException:", e)
+        except TimeoutException as e:
+            logging.error(f'an error occurred: {e}')
 
     def login_flow(self, email, password):
         """
@@ -63,5 +65,5 @@ class LoginPage(BasePage):
             error_msg = WebDriverWait(self._driver, 5).until(
                 EC.visibility_of_element_located((By.XPATH, self.LOGIN_ERROR)))
             return error_msg.is_displayed()
-        except NoSuchElementException as e:
-            print(e)
+        except TimeoutException as e:
+            logging.error(f'an error occurred: {e}')

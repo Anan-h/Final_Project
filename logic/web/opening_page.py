@@ -1,3 +1,4 @@
+import logging
 from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -13,8 +14,8 @@ class OpeningPage(BasePage):
         try:
             self.login_button = WebDriverWait(self._driver, 3).until(
                 EC.visibility_of_element_located((By.XPATH, self.LOGIN_BUTTON)))
-        except NoSuchElementException as e:
-            print(e)
+        except TimeoutException as e:
+            logging.error(f'an error occurred: {e}')
 
     def login_button_click(self):
         """ Clicks on the login button. """

@@ -1,0 +1,1 @@
+[32mINFO    [0m root:test_remove_member_from_board.py:30 Testing tha API request for deleting member from a board

@@ -1,3 +1,5 @@
+import logging
+import os
 import unittest
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
@@ -8,7 +10,9 @@ from logic.enums.member_types import MemberTypes
 
 
 class TestRemoveMemberFromBoard(unittest.TestCase):
-    config = ConfigProvider().load_from_file('../../config.json')
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(base_dir, '../../config.json')
+    config = ConfigProvider().load_from_file(config_path)
 
     def setUp(self):
         self.api_request = APIWrapper()
@@ -19,6 +23,10 @@ class TestRemoveMemberFromBoard(unittest.TestCase):
         self.member_id = APIMembers(self.api_request).get_member_id_by_user_name(self.config['user_name_to_add'])
         self.api_boards.add_member_to_board(self.board_id, self.member_id, self.member_type)
 
+    def tearDown(self):
+        self.api_boards.delete_board_by_id(self.board_id)
+
     def test_deleting_member_from_board(self):
+        logging.info('Testing tha API request for deleting member from a board')
         delete_response = self.api_boards.remove_member_from_board(self.board_id, self.member_id)
         self.assertEqual(delete_response.status, self.config['good_status_code'])

@@ -1,3 +1,5 @@
+import logging
+import os
 import unittest
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
@@ -11,7 +13,9 @@ from logic.web.opening_page import OpeningPage
 
 
 class TestDeleteBoard(unittest.TestCase):
-    config = ConfigProvider().load_from_file('../config.json')
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(base_dir, '../../config.json')
+    config = ConfigProvider().load_from_file(config_path)
 
     def setUp(self):
         self.api_request = APIWrapper()
@@ -27,16 +31,18 @@ class TestDeleteBoard(unittest.TestCase):
 
     def tearDown(self):
         self.home_page.log_out()
+        self.driver.quit()
 
     def test_deleting_board_function(self):
+        logging.info('Testing the deleting function of a board')
         self.home_page.click_on_board()
-        self.board = BoardPage(self.driver)
-        self.board.click_on_board_menu()
-        self.board.click_on_close_button()
-        self.board.confirm_closing_board()
-        self.board.click_on_delete_board_button()
-        self.board.click_on_confirm_delete_board_button()
-        self.assertTrue(self.board.board_deleted_message_is_visible())
+        self.board_page = BoardPage(self.driver)
+        self.board_page.click_on_board_menu()
+        self.board_page.click_on_close_button()
+        self.board_page.confirm_closing_board()
+        self.board_page.click_on_delete_board_button()
+        self.board_page.click_on_confirm_delete_board_button()
+        self.assertTrue(self.board_page.board_deleted_message_is_visible())
 
 
 

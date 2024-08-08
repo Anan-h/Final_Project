@@ -1,0 +1,2 @@
+[32mINFO    [0m root:browser_wrapper.py:32 opening Chrome browser
+[32mINFO    [0m root:test_add_member_to_board.py:42 Testing adding a member to an existent board

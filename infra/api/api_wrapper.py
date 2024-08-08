@@ -1,5 +1,5 @@
 import requests
-
+from infra.logger import Logger
 from infra.api.response_wrapper import ResponseWrapper
 
 

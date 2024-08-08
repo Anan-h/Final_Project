@@ -1,0 +1,112 @@
+2024-08-08 13:16:07,395: INFO: Testing tha API request for deleting an existent board 
+2024-08-08 13:16:48,509: INFO: opening Chrome browser 
+2024-08-08 13:16:48,576: INFO: Testing the login function with valid data 
+2024-08-08 14:15:09,809: INFO: opening Chrome browser 
+2024-08-08 14:15:23,915: INFO: Testing the creating new list function 
+2024-08-08 14:43:47,890: INFO: opening Chrome browser 
+2024-08-08 14:43:55,142: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 14:44:02,143: ERROR: an error occurred: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6D1D49632+30946]
+	(No symbol) [0x00007FF6D1CFE3C9]
+	(No symbol) [0x00007FF6D1BF6FDA]
+	(No symbol) [0x00007FF6D1C4822C]
+	(No symbol) [0x00007FF6D1C4850C]
+	(No symbol) [0x00007FF6D1C8DCB7]
+	(No symbol) [0x00007FF6D1C6CAAF]
+	(No symbol) [0x00007FF6D1C8B041]
+	(No symbol) [0x00007FF6D1C6C813]
+	(No symbol) [0x00007FF6D1C3A6E5]
+	(No symbol) [0x00007FF6D1C3B021]
+	GetHandleVerifier [0x00007FF6D1E7F83D+1301229]
+	GetHandleVerifier [0x00007FF6D1E8BDB7+1351783]
+	GetHandleVerifier [0x00007FF6D1E82A03+1313971]
+	GetHandleVerifier [0x00007FF6D1D7DD06+245686]
+	(No symbol) [0x00007FF6D1D0758F]
+	(No symbol) [0x00007FF6D1D03804]
+	(No symbol) [0x00007FF6D1D03992]
+	(No symbol) [0x00007FF6D1CFA3EF]
+	BaseThreadInitThunk [0x00007FFA8FFB257D+29]
+	RtlUserThreadStart [0x00007FFA9140AF28+40]
+ 
+2024-08-08 14:44:07,307: WARNING: the card is not in the Done list  
+2024-08-08 14:44:07,307: ERROR: an error occurred: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6D1D49632+30946]
+	(No symbol) [0x00007FF6D1CFE3C9]
+	(No symbol) [0x00007FF6D1BF6FDA]
+	(No symbol) [0x00007FF6D1C4822C]
+	(No symbol) [0x00007FF6D1C4850C]
+	(No symbol) [0x00007FF6D1C8DCB7]
+	(No symbol) [0x00007FF6D1C6CAAF]
+	(No symbol) [0x00007FF6D1C8B041]
+	(No symbol) [0x00007FF6D1C6C813]
+	(No symbol) [0x00007FF6D1C3A6E5]
+	(No symbol) [0x00007FF6D1C3B021]
+	GetHandleVerifier [0x00007FF6D1E7F83D+1301229]
+	GetHandleVerifier [0x00007FF6D1E8BDB7+1351783]
+	GetHandleVerifier [0x00007FF6D1E82A03+1313971]
+	GetHandleVerifier [0x00007FF6D1D7DD06+245686]
+	(No symbol) [0x00007FF6D1D0758F]
+	(No symbol) [0x00007FF6D1D03804]
+	(No symbol) [0x00007FF6D1D03992]
+	(No symbol) [0x00007FF6D1CFA3EF]
+	BaseThreadInitThunk [0x00007FFA8FFB257D+29]
+	RtlUserThreadStart [0x00007FFA9140AF28+40]
+ 
+2024-08-08 14:46:11,619: INFO: opening Chrome browser 
+2024-08-08 14:46:18,872: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 15:12:07,741: INFO: opening Chrome browser 
+2024-08-08 15:12:15,079: INFO: Testing updating the board name 
+2024-08-08 15:13:19,904: INFO: opening Chrome browser 
+2024-08-08 15:13:26,923: INFO: Testing updating the board name 
+2024-08-08 15:14:19,157: INFO: opening Chrome browser 
+2024-08-08 15:14:27,158: INFO: Testing updating the board name 
+2024-08-08 16:47:32,239: INFO: opening Chrome browser 
+2024-08-08 16:47:41,603: ERROR: an error occurred: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6D1D49632+30946]
+	(No symbol) [0x00007FF6D1CFE3C9]
+	(No symbol) [0x00007FF6D1BF6FDA]
+	(No symbol) [0x00007FF6D1C4822C]
+	(No symbol) [0x00007FF6D1C4850C]
+	(No symbol) [0x00007FF6D1C8DCB7]
+	(No symbol) [0x00007FF6D1C6CAAF]
+	(No symbol) [0x00007FF6D1C8B041]
+	(No symbol) [0x00007FF6D1C6C813]
+	(No symbol) [0x00007FF6D1C3A6E5]
+	(No symbol) [0x00007FF6D1C3B021]
+	GetHandleVerifier [0x00007FF6D1E7F83D+1301229]
+	GetHandleVerifier [0x00007FF6D1E8BDB7+1351783]
+	GetHandleVerifier [0x00007FF6D1E82A03+1313971]
+	GetHandleVerifier [0x00007FF6D1D7DD06+245686]
+	(No symbol) [0x00007FF6D1D0758F]
+	(No symbol) [0x00007FF6D1D03804]
+	(No symbol) [0x00007FF6D1D03992]
+	(No symbol) [0x00007FF6D1CFA3EF]
+	BaseThreadInitThunk [0x00007FFA8FFB257D+29]
+	RtlUserThreadStart [0x00007FFA9140AF28+40]
+ 
+2024-08-08 16:47:42,796: INFO: Testing updating the card name 
+2024-08-08 16:49:21,897: INFO: opening Chrome browser 
+2024-08-08 16:49:29,667: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 16:52:12,261: INFO: opening Chrome browser 
+2024-08-08 16:52:21,087: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 16:52:45,462: INFO: opening Chrome browser 
+2024-08-08 16:52:52,790: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 16:53:41,470: INFO: opening Chrome browser 
+2024-08-08 16:53:48,498: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 16:56:42,144: INFO: opening Chrome browser 
+2024-08-08 16:56:52,353: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 18:09:27,369: INFO: opening Chrome browser 
+2024-08-08 18:09:35,573: INFO: Testing updating the card name 
+2024-08-08 18:11:25,605: INFO: opening Chrome browser 
+2024-08-08 18:11:40,565: INFO: Testing updating the card name 
+2024-08-08 18:13:36,451: INFO: opening Chrome browser 
+2024-08-08 18:13:45,128: INFO: Testing updating the card name 
+2024-08-08 18:14:03,638: INFO: opening Chrome browser 
+2024-08-08 18:14:11,030: INFO: Testing updating the card name 
+2024-08-08 18:14:42,430: INFO: opening Chrome browser 
+2024-08-08 18:15:00,182: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-08 18:21:13,905: INFO: opening Chrome browser 
+2024-08-08 18:21:21,096: INFO: Testing moving card from ToDo list to the Done list 

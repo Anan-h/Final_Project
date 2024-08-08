@@ -1,3 +1,5 @@
+import logging
+import os
 import unittest
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
@@ -12,7 +14,9 @@ from logic.web.opening_page import OpeningPage
 
 
 class TestAddingNewCardToList(unittest.TestCase):
-    config = ConfigProvider().load_from_file('../config.json')
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(base_dir, '../../config.json')
+    config = ConfigProvider().load_from_file(config_path)
 
     def setUp(self):
         self.api_request = APIWrapper()
@@ -28,10 +32,12 @@ class TestAddingNewCardToList(unittest.TestCase):
         self.to_do_list_id = self.api_boards.get_to_do_list_id_by_board_id(self.board_id)
 
     def tearDown(self):
-        self.api_boards.delete_board_by_id(self.board_id)
         self.board_page.log_out()
+        self.api_boards.delete_board_by_id(self.board_id)
+        self.driver.quit()
 
     def test_add_new_card_into_todo_list(self):
+        logging.info('Testing adding new card into the ToDo list')
         self.home_page.click_on_board()
         self.board_page = BoardPage(self.driver)
         APICards(self.api_request).create_new_card_on_list(self.to_do_list_id, Utils.generate_random_string(5))
