@@ -38,3 +38,4 @@ class TestCloseBoard(unittest.TestCase):
         self.assertTrue(self.board.closing_message_is_displayed())
 
 
+

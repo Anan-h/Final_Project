@@ -29,10 +29,10 @@ class TestAddingNewCardToList(unittest.TestCase):
 
     def tearDown(self):
         self.api_boards.delete_board_by_id(self.board_id)
-        self.home_page.log_out()
+        self.board_page.log_out()
 
     def test_add_new_card_into_todo_list(self):
         self.home_page.click_on_board()
+        self.board_page = BoardPage(self.driver)
         APICards(self.api_request).create_new_card_on_list(self.to_do_list_id, Utils.generate_random_string(5))
-        card_visible = BoardPage(self.driver).card_is_visible()
-        self.assertTrue(card_visible)
+        self.assertTrue(BoardPage(self.driver).card_is_visible())

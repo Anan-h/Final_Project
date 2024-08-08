@@ -16,10 +16,10 @@ class APIWrapper:
         response = requests.post(url=url, json=body, headers=headers, params=params)
         return ResponseWrapper(ok=response.ok, status=response.status_code, data=response.json())
 
-    def put_request(self,url, body=None, headers=None, params=None):
+    def put_request(self, url, body=None, headers=None, params=None):
         response = requests.put(url=url, json=body, headers=headers, params=params)
         return ResponseWrapper(ok=response.ok, status=response.status_code, data=response.json())
 
-    def delete_request(self,url, body=None, headers=None, params=None):
+    def delete_request(self, url, body=None, headers=None, params=None):
         response = requests.delete(url=url, json=body, headers=headers, params=params)
         return ResponseWrapper(ok=response.ok, status=response.status_code, data=response.json())

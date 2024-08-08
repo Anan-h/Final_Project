@@ -26,10 +26,9 @@ class TestDeleteBoard(unittest.TestCase):
         self.board_id = self.response.data['id']
 
     def tearDown(self):
-        self.api_boards.delete_board_by_id(self.board_id)
-        self.board.log_out()
+        self.home_page.log_out()
 
-    def test_closing_board_function(self):
+    def test_deleting_board_function(self):
         self.home_page.click_on_board()
         self.board = BoardPage(self.driver)
         self.board.click_on_board_menu()
@@ -38,5 +37,6 @@ class TestDeleteBoard(unittest.TestCase):
         self.board.click_on_delete_board_button()
         self.board.click_on_confirm_delete_board_button()
         self.assertTrue(self.board.board_deleted_message_is_visible())
+
 
 
