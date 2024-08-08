@@ -36,6 +36,10 @@ class TestCreateNewListInBoard(unittest.TestCase):
         self.driver.quit()
 
     def test_create_new_list(self):
+        """
+        Test Case- 10
+        creating new list in an existent board
+        """
         logging.info('Testing the creating new list function')
         self.board_page = BoardPage(self.driver)
         self.board_page.click_on_add_new_list_button()

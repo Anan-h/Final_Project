@@ -34,6 +34,10 @@ class TestDeleteBoard(unittest.TestCase):
         self.driver.quit()
 
     def test_deleting_board_function(self):
+        """
+        Test Case- 14
+        deleting an existent board
+        """
         logging.info('Testing the deleting function of a board')
         self.home_page.click_on_board()
         self.board_page = BoardPage(self.driver)

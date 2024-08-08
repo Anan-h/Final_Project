@@ -35,6 +35,10 @@ class TestCloseBoard(unittest.TestCase):
         self.driver.quit()
 
     def test_closing_board_function(self):
+        """
+        Test Case- 12
+        Closing an open board
+        """
         logging.info('Testing the closing function of a board')
         self.home_page.click_on_board()
         self.board = BoardPage(self.driver)

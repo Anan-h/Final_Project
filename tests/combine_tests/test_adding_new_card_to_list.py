@@ -37,6 +37,10 @@ class TestAddingNewCardToList(unittest.TestCase):
         self.driver.quit()
 
     def test_add_new_card_into_todo_list(self):
+        """
+        Test Case- 8
+        adding a new card into the To-Do list
+        """
         logging.info('Testing adding new card into the ToDo list')
         self.home_page.click_on_board()
         self.board_page = BoardPage(self.driver)

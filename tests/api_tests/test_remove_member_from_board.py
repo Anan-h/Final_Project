@@ -27,6 +27,10 @@ class TestRemoveMemberFromBoard(unittest.TestCase):
         self.api_boards.delete_board_by_id(self.board_id)
 
     def test_deleting_member_from_board(self):
+        """
+        Test case- 5
+        API Test -deleting member from board by id
+        """
         logging.info('Testing tha API request for deleting member from a board')
         delete_response = self.api_boards.remove_member_from_board(self.board_id, self.member_id)
         self.assertEqual(delete_response.status, self.config['good_status_code'])

@@ -19,6 +19,10 @@ class TestDeletingBoard(unittest.TestCase):
         self.board_id = self.response.data['id']
 
     def test_update_board_name(self):
+        """
+        Test Case- 3
+        API test - deleting board
+        """
         logging.info('Testing tha API request for deleting an existent board')
         delete_response = self.api_boards.delete_board_by_id(self.board_id)
         self.assertEqual(delete_response.status, self.config['good_status_code'])

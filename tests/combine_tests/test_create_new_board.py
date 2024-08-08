@@ -32,6 +32,10 @@ class TestCreateNewBoard(unittest.TestCase):
         self.driver.quit()
 
     def test_create_new_board(self):
+        """
+        Test Case 1:
+        creating new board
+        """
         logging.info('Testing the creating new board function')
         self.home_page = HomePage(self.driver)
         board_name = Utils.generate_random_string(5)

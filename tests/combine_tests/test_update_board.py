@@ -33,6 +33,10 @@ class TestUpdateBoard(unittest.TestCase):
         HomePage(self.driver).log_out()
 
     def test_update_board_name(self):
+        """
+        Test Case- 2
+        Updating the name of the board
+        """
         logging.info('Testing updating the board name')
         new_board_name = Utils.generate_random_string(5)
         self.api_boards.update_board_name_by_board_id(self.board_id, new_board_name)

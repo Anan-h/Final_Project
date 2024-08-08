@@ -33,6 +33,10 @@ class TestMoveCard(unittest.TestCase):
         self.driver.quit()
 
     def test_move_card_from_todo_to_done_list(self):
+        """
+        Test Case- 13
+        performing full process to move card from To-Do list to Done list
+        """
         logging.info('Testing moving card from ToDo list to the Done list')
         self.api_boards = APIBoards(self.api_request)
         self.response = self.api_boards.create_new_board(Utils.generate_random_string(5))

@@ -37,6 +37,10 @@ class TestUpdateCard(unittest.TestCase):
         self.driver.quit()
 
     def test_update_card_name(self):
+        """
+        Test Case- 9
+        changing the name of an existent card
+        """
         logging.info('Testing updating the card name')
         self.home.click_on_board()
         self.board_page = BoardPage(self.driver)

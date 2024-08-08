@@ -26,6 +26,10 @@ class TestMoveAllCards(unittest.TestCase):
         self.api_boards.delete_board_by_id(self.board_id)
 
     def test_move_all_cards_from_todo_to_done_list(self):
+        """
+        Test Case- 11
+        API Test: moving all the cards from To-Do list to Done list
+        """
         logging.info('Testing tha API request for moving all the cards from the all cards')
         self.api_lists = APILists(self.api_request)
         APICards(self.api_request).create_new_card_on_list(self.to_do_list_id, Utils.generate_random_string(5))

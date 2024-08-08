@@ -22,6 +22,10 @@ class TestValidLogin(unittest.TestCase):
         self.driver.quit()
 
     def test_valid_log_in(self):
+        """
+        Test Case- 6
+        performing login process with valid data
+        """
         logging.info('Testing the login function with valid data')
         self.first_page.login_button_click()
         login_page = LoginPage(self.driver)

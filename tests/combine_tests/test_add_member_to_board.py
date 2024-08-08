@@ -39,6 +39,10 @@ class AddMemberToBoard(unittest.TestCase):
         self.driver.quit()
 
     def test_add_member_to_board(self):
+        """
+        Test Case- 4
+        adding member to board
+        """
         logging.info('Testing adding a member to an existent board')
         self.api_boards.add_member_to_board(self.board_id, self.member_id, self.member_type)
         self.home_page.click_on_board()

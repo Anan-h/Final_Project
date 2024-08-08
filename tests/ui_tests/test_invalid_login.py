@@ -21,6 +21,10 @@ class TestInvalidLogin(unittest.TestCase):
         self.driver.quit()
 
     def test_invalid_log_in(self):
+        """
+        Test Case- 7
+        performing login process with invalid password
+        """
         logging.info('Testing tha login function with invalid password')
         self.first_page.login_button_click()
         login_page = LoginPage(self.driver)
