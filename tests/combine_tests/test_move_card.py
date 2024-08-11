@@ -19,7 +19,6 @@ class TestMoveCard(unittest.TestCase):
     def tearDown(self):
         if self.error:
             JiraHandler().create_issue(self.config['project_key'], self._testMethodName, self.error)
-
         self.board_page.log_out()
         self.api_boards.delete_board_by_id(self.board_id)
         self.driver.quit()
@@ -31,6 +30,7 @@ class TestMoveCard(unittest.TestCase):
         """
         logging.info('Testing moving card from ToDo list to the Done list')
         # pre-conditions
+        self.error = None
         self.api_request = APIWrapper()
         self.driver = BrowserWrapper().get_driver(self.config["base_url"])
         first_page = OpeningPage(self.driver)
@@ -47,9 +47,12 @@ class TestMoveCard(unittest.TestCase):
         self.to_do_list_id = self.api_boards.get_to_do_list_id_by_board_id(self.board_id)
         self.api_cards = APICards(self.api_request)
         self.api_cards.create_new_card_on_list(self.to_do_list_id, Utils.generate_random_string(5))
+        # Act
         self.board_page.move_card_to_list(self.config['done_list_name'])
+        # Assert
         try:
             self.assertTrue(self.board_page.check_that_card_is_in_list(self.config['done_list_name']))
-            # self.assertTrue(False)
+            # self.assertTrue(False)  # intentionally to demonstrate jira
         except AssertionError as e:
-            self.error = f"an error occurred :{e}"
+            self.error = f"An error occurred: {e}"
+            raise
