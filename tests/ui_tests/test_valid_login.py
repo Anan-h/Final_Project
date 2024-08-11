@@ -1,5 +1,4 @@
 import logging
-import os
 import unittest
 from infra.config_provider import ConfigProvider
 from infra.web.browser_wrapper import BrowserWrapper
@@ -9,9 +8,7 @@ from logic.web.opening_page import OpeningPage
 
 
 class TestValidLogin(unittest.TestCase):
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    config_path = os.path.join(base_dir, '../../config.json')
-    config = ConfigProvider().load_from_file(config_path)
+    config = ConfigProvider().load_from_file('../../config.json', __file__)
 
     def setUp(self):
         self.driver = BrowserWrapper().get_driver(self.config["base_url"])

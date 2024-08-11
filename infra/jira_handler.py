@@ -5,11 +5,8 @@ from infra.config_provider import ConfigProvider
 
 
 class JiraHandler:
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    config_file_path = os.path.join(base_dir, '../config.json')
-    secret_file_path = os.path.join(base_dir, '../secret.json')
-    config = ConfigProvider().load_from_file(config_file_path)
-    secret_file = ConfigProvider().load_from_file(secret_file_path)
+    config = ConfigProvider().load_from_file('../config.json', __file__)
+    secret_file = ConfigProvider().load_from_file('../secret.json', __file__ )
 
     def __init__(self):
         self._jira_url = self.config['jira_url']

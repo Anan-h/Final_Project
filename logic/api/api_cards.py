@@ -6,14 +6,11 @@ from infra.config_provider import ConfigProvider
 
 class APICards:
     END_POINT = "/cards"
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    config_file_path = os.path.join(base_dir, '../../config.json')
-    secret_file_path = os.path.join(base_dir, '../../secret.json')
+    config = ConfigProvider().load_from_file('../../config.json', __file__)
+    secret = ConfigProvider().load_from_file('../../secret.json', __file__)
 
     def __init__(self, request: APIWrapper):
         self._request = request
-        self.config = ConfigProvider().load_from_file(self.config_file_path)
-        self.secret = ConfigProvider().load_from_file(self.secret_file_path)
         self.API_KEY = self.secret['trello_api_key']
         self.API_TOKEN = self.secret['trello_api_token']
 

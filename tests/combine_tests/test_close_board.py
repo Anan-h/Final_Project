@@ -1,5 +1,4 @@
 import logging
-import os
 import unittest
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
@@ -13,9 +12,7 @@ from logic.web.opening_page import OpeningPage
 
 
 class TestCloseBoard(unittest.TestCase):
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    config_path = os.path.join(base_dir, '../../config.json')
-    config = ConfigProvider().load_from_file(config_path)
+    config = ConfigProvider().load_from_file('../../config.json', __file__)
 
     def setUp(self):
         self.api_request = APIWrapper()

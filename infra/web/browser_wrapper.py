@@ -6,12 +6,10 @@ from selenium import webdriver
 
 
 class BrowserWrapper:
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    config_file_path = os.path.join(base_dir, '../../config.json')
+    config = ConfigProvider().load_from_file('../../config.json', __file__)
 
     def __init__(self):
         self.driver = None
-        self.config = ConfigProvider().load_from_file(self.config_file_path)
 
     def get_driver(self, url):
         """
@@ -31,4 +29,3 @@ class BrowserWrapper:
         self.driver.maximize_window()
         logging.info(f"opening {self.config['browser']} browser")
         return self.driver
-

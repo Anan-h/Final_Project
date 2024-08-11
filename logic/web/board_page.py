@@ -1,6 +1,4 @@
 import logging
-import time
-
 from logic.web.app_base_page import AppBasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
