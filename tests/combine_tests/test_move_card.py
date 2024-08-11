@@ -2,6 +2,7 @@ import logging
 import unittest
 from infra.api.api_wrapper import APIWrapper
 from infra.config_provider import ConfigProvider
+from infra.jira_handler import JiraHandler
 from infra.utils import Utils
 from infra.web.browser_wrapper import BrowserWrapper
 from logic.api.api_boards import APIBoards
@@ -15,16 +16,10 @@ from logic.web.opening_page import OpeningPage
 class TestMoveCard(unittest.TestCase):
     config = ConfigProvider().load_from_file('../../config.json', __file__)
 
-    def setUp(self):
-        self.api_request = APIWrapper()
-        self.driver = BrowserWrapper().get_driver(self.config["base_url"])
-        first_page = OpeningPage(self.driver)
-        first_page.login_button_click()
-        login_page = LoginPage(self.driver)
-        login_page.login_flow(self.config["email"], self.config["password"])
-        self.home_page = HomePage(self.driver)
-
     def tearDown(self):
+        if self.error:
+            JiraHandler().create_issue(self.config['project_key'], self._testMethodName, self.error)
+
         self.board_page.log_out()
         self.api_boards.delete_board_by_id(self.board_id)
         self.driver.quit()
@@ -35,6 +30,15 @@ class TestMoveCard(unittest.TestCase):
         performing full process to move card from To-Do list to Done list
         """
         logging.info('Testing moving card from ToDo list to the Done list')
+        # pre-conditions
+        self.api_request = APIWrapper()
+        self.driver = BrowserWrapper().get_driver(self.config["base_url"])
+        first_page = OpeningPage(self.driver)
+        first_page.login_button_click()
+        login_page = LoginPage(self.driver)
+        login_page.login_flow(self.config["email"], self.config["password"])
+        self.home_page = HomePage(self.driver)
+        # test steps
         self.api_boards = APIBoards(self.api_request)
         self.response = self.api_boards.create_new_board(Utils.generate_random_string(5))
         self.board_id = self.response.data['id']
@@ -44,4 +48,8 @@ class TestMoveCard(unittest.TestCase):
         self.api_cards = APICards(self.api_request)
         self.api_cards.create_new_card_on_list(self.to_do_list_id, Utils.generate_random_string(5))
         self.board_page.move_card_to_list(self.config['done_list_name'])
-        self.assertTrue(self.board_page.check_that_card_is_in_list(self.config['done_list_name']))
+        try:
+            self.assertTrue(self.board_page.check_that_card_is_in_list(self.config['done_list_name']))
+            # self.assertTrue(False)
+        except AssertionError as e:
+            self.error = f"an error occurred :{e}"

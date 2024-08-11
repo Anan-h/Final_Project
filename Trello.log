@@ -116,3 +116,5 @@ Stacktrace:
 2024-08-11 09:34:39,773: INFO: Testing moving card from ToDo list to the Done list 
 2024-08-11 13:01:46,108: INFO: opening Chrome browser 
 2024-08-11 13:01:58,204: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-11 13:21:58,474: INFO: Testing moving card from ToDo list to the Done list 
+2024-08-11 13:22:02,034: INFO: opening Chrome browser 
