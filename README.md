@@ -1,5 +1,5 @@
-## <p style="color:green;">Trello Website API and UI Testing Project</p>
-## <p style="color:orange;">Overview</p>
+## <p style="color:blue;">Trello Website API and UI Testing Project</p>
+## Overview
 This repository contains a set of automated tests for the Trello website, covering both API and UI testing. 
 The goal of this project is to ensure the reliability and functionality of the website by verifying its API endpoints and user interface.
 https://trello.com
@@ -48,9 +48,9 @@ Contributions are welcome! If you have suggestions or improvements, please fork 
 ### Contact
 #### For any questions or issues, please contact:
 
-* <p style="color:orange;">Name: Anan Husien</p>
-* <p style="color:orange;">Email: anan.hosien@gmail.com</p>
-* <p style="color:orange;">GitHub: https://github.com/Anan-h</p>
+* Name: Anan Husein
+* Email: anan.hosien@gmail.com
+*  GitHub: https://github.com/Anan-h
 
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
